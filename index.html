@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hangman Game</title>
+  </head>
+  <body>
+    <container id="game">
+      <h1>Hangman</h1>
+      <img src="" alt="hangman" />
+      <p>Lives left: <span id="lives-counter">5</span></p>
+      <div class="action-buttons">
+        <button class="action-buttons__restart">Restart Game</button>
+        <button class="action-buttons__solution">Solution</button>
+        <button class="action-buttons__new-game">New Game</button>
+      </div>
+      <div class="hidden-letters"></div>
+      <div class="keyboard"></div>
+    </container>
+    <script src="main.js" type="module"></script>
+  </body>
+</html>
