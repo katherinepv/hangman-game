@@ -49,11 +49,17 @@ const displayKeyboard = () => {
 console.log(displayKeyboard());
 
 // generate random word fro user to guess
+let randomWord = "";
+git;
 const generateRandomWord = () => {
-  let randomWord = "";
   randomWord = wordBank[Math.floor(Math.random() * wordBank.length)];
   return randomWord;
 };
 console.log(generateRandomWord());
 
-//
+// display the random word but hidden
+const displayHiddenWord = (randomWord) => {
+  randomWordLettersArr = randomWord.split("");
+  hiddenWord.innerHTML = randomWordLettersArr;
+};
+console.log(displayHiddenWord());

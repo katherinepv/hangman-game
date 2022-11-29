@@ -1,0 +1,27 @@
+.game {
+    min-width: 100vh;
+    min-height: 100vh;
+
+    h1 {
+        text-align: center;
+    }
+
+    img {
+        object-fit: scale-down;
+    }
+
+    .lives-left {
+        text-align: center;
+    }
+
+
+    .action-buttons {
+        margin-top: 1rem;
+        text-align: center;
+    }
+}
+
+.keyboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}

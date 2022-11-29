@@ -1,0 +1,32 @@
+.game {
+  min-width: 100vh;
+  min-height: 100vh;
+}
+.game h1 {
+  text-align: center;
+}
+.game img {
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+}
+.game .lives-left {
+  text-align: center;
+}
+.game .action-buttons {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: 1rem;
+  padding: 0.125rem;
+}/*# sourceMappingURL=styles.css.map */
