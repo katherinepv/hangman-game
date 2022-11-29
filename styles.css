@@ -29,4 +29,27 @@
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   font-size: 1rem;
   padding: 0.125rem;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  background-color: aliceblue;
+}
+.overlay .overlay-content {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  margin-top: 2rem;
+  color: aliceblue;
+  font-size: 3rem;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+.overlay .start-game-button {
+  position: absolute;
+  font-size: 3rem;
 }/*# sourceMappingURL=styles.css.map */

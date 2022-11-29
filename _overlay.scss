@@ -1,23 +1,25 @@
-// .overlay {
-//     height: 100%;
-//     width: 0;
-//     position: fixed;
-//     z-index: 1;
-//     background-color: aliceblue;
+.overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    background-color: aliceblue;
 
-//     .overlay-content {
-//         position: absolute;
-//         width: 100%;
-//         text-align: center;
-//         margin-top: 2rem;
-//         color: aliceblue;
-//         font-size: 3rem;
-//         z-index: 1;
-//     }
+    .overlay-content {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        margin-top: 2rem;
+        color: aliceblue;
+        font-size: 3rem;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+    }
 
-//     .enter-game-button {
-//         position: absolute;
-//         font-size: 3rem;
+    .start-game-button {
+        position: absolute;
+        font-size: 3rem;
 
-//     }
-// }
+    }
+}
