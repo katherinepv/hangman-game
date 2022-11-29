@@ -87,12 +87,23 @@ const displayKeyboard = () => {
   alphabet.forEach((letter) => {
     const letterHTML = `<button id="${letter}-button">${letter}</button>`;
     return (keyboard.innerHTML += letterHTML);
-    // const letterButton = document.querySelector(#${letter}-button)
+    // const letterButtons = document.querySelector(#${letter}-button)
     // letterButton.addEventListener("click",)
     // use that id in a queryselctor then add event listener
   });
 };
 console.log(displayKeyboard());
+
+const getLetterInput = (event) => {
+  const userLetterInput = event.target.innerText;
+  guessedLetter = userLetterInput;
+  console.log(guessedLetter);
+};
+
+// event listener for letter buttons
+for (let index = 0; index < letterButtons.length; index++) {
+  letterButtons[index].addEventListener("click", getLetterInput);
+}
 
 // const handleKeyboardButtons = () => {
 //   const letterButton = document.querySelectorAll(".keyboard");
