@@ -3,23 +3,34 @@
     width: 100%;
     position: fixed;
     z-index: 1;
-    background-color: aliceblue;
+    background-color: rgb(37, 84, 125);
 
-    .overlay-content {
-        position: absolute;
-        width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        font-size: 4rem;
         text-align: center;
-        margin-top: 2rem;
-        color: aliceblue;
-        font-size: 3rem;
-        z-index: 1;
-        display: flex;
-        flex-direction: column;
     }
 
+    // .overlay-content {
+    //     position: absolute;
+    //     width: 100%;
+    //     text-align: center;
+    //     margin-top: 2rem;
+    //     color: rgb(32, 73, 109);
+    //     font-size: 3rem;
+    //     z-index: 1;
+    //     display: flex;
+    //     flex-direction: column;
+    // }
     .start-game-button {
         position: absolute;
         font-size: 3rem;
+        background-color: rgb(93, 93, 93);
 
     }
+
 }

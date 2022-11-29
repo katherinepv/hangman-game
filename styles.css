@@ -1,20 +1,32 @@
-.game {
+.game-container {
   min-width: 100vh;
   min-height: 100vh;
 }
-.game h1 {
+.game-container h1 {
   text-align: center;
+  font-size: 2rem;
+  color: darkgreen;
 }
-.game img {
+.game-container img {
   -o-object-fit: scale-down;
      object-fit: scale-down;
 }
-.game .lives-left {
+.game-container .lives-left {
   text-align: center;
 }
-.game .action-buttons {
+
+.action-buttons {
   margin-top: 1rem;
   text-align: center;
+}
+.action-buttons .action-buttons__restart,
+.action-buttons .action-buttons__solution,
+.action-buttons .action-buttons__new-game {
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border-style: solid;
+  border-color: magenta;
+  background-color: palevioletred;
 }
 
 .keyboard {
@@ -36,20 +48,18 @@
   width: 100%;
   position: fixed;
   z-index: 1;
-  background-color: aliceblue;
-}
-.overlay .overlay-content {
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  margin-top: 2rem;
-  color: aliceblue;
-  font-size: 3rem;
-  z-index: 1;
+  background-color: rgb(37, 84, 125);
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.overlay h1 {
+  font-size: 4rem;
+  text-align: center;
 }
 .overlay .start-game-button {
   position: absolute;
   font-size: 3rem;
+  background-color: rgb(93, 93, 93);
 }/*# sourceMappingURL=styles.css.map */

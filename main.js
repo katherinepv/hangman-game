@@ -4,7 +4,7 @@ const startButton = document.querySelector(".start-game-button");
 const keyboard = document.querySelector(".keyboard");
 const hiddenWord = document.querySelector(".hidden-word");
 
-export const alphabet = [
+const alphabet = [
   "a",
   "b",
   "c",
@@ -33,7 +33,7 @@ export const alphabet = [
   "z",
 ];
 
-export const wordBank = [
+const wordBank = [
   "spaceship",
   "cruiseship",
   "cycling",
@@ -71,15 +71,7 @@ const removeOverlay = () => {
   return (overlay.style.display = "none");
 };
 
-const startGame = () => {
-  removeOverlay();
-  generateRandomWord();
-  // displayHiddenWord();
-  // displayLivesLeft();
-};
-
 overlay.addEventListener("load", displayOverlay);
-startButton.addEventListener("click", startGame);
 
 // 2 To play game
 // 2.1 display the keyboard for users to choose letters
@@ -87,13 +79,13 @@ const displayKeyboard = () => {
   alphabet.forEach((letter) => {
     const letterHTML = `<button id="${letter}-button">${letter}</button>`;
     return (keyboard.innerHTML += letterHTML);
-    // const letterButtons = document.querySelector(#${letter}-button)
     // letterButton.addEventListener("click",)
     // use that id in a queryselctor then add event listener
   });
 };
 console.log(displayKeyboard());
 
+const letterButtons = document.querySelectorAll(".keyboard");
 const getLetterInput = (event) => {
   const userLetterInput = event.target.innerText;
   guessedLetter = userLetterInput;
@@ -119,22 +111,29 @@ const generateRandomWord = () => {
 console.log(generateRandomWord());
 
 // 2.3 display the random word but hidden
-const hiddenWordHTML = (letter) => {
-  return `<spanp id="${letter}">_</span>`;
+const hideLetterHTML = (letter) => {
+  return `<span id="${letter}">_</span>`;
 };
-console.log(hiddenWordHTML());
 
-const displayHiddenWord = (word) => {
-  for (let index = 0; index < word.length; index++) {
-    const aLetterFromWord = word[index];
-    const wordHTML = hiddenWordHTML(aLetterFromWord);
-    hiddenWord.innerHTML += wordHTML;
-  }
+// const displayHiddenWord = (word) => {
+//   for (let index = 0; index < word.length; index++) {
+//     const aLetterFromWord = word[index];
+//     const wordHTML = hideLetterHTML(aLetterFromWord);
+//     hiddenWord.innerHTML += wordHTML;
+//   }
+//   ////   randomWordLettersArr = randomWord.split("");
+//   ////   hiddenWord.innerHTML = randomWordLettersArr;
+// };
+// displayHiddenWord(randomWord);
 
-  //   randomWordLettersArr = randomWord.split("");
-  //   hiddenWord.innerHTML = randomWordLettersArr;
+const startGame = () => {
+  removeOverlay();
+  generateRandomWord();
+  // displayHiddenWord();
+  // displayLivesLeft();
 };
-displayHiddenWord(randomWord);
+
+startButton.addEventListener("click", startGame);
 
 // 2.4 display how many lives are left
 // const displayLivesLeft = () => {

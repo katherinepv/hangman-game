@@ -1,9 +1,11 @@
-.game {
+.game-container {
     min-width: 100vh;
     min-height: 100vh;
 
     h1 {
         text-align: center;
+        font-size: 2rem;
+        color: darkgreen;
     }
 
     img {
@@ -13,15 +15,27 @@
     .lives-left {
         text-align: center;
     }
+}
+
+.action-buttons {
+    margin-top: 1rem;
+    text-align: center;
 
 
-    .action-buttons {
-        margin-top: 1rem;
-        text-align: center;
+    .action-buttons__restart,
+    .action-buttons__solution,
+    .action-buttons__new-game {
+        font-size: 1rem;
+        border-radius: 0.5rem;
+        border-style: solid;
+        border-color: magenta;
+        background-color: palevioletred;
     }
 }
 
 .keyboard {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+
 }
