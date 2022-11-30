@@ -5,44 +5,12 @@ import { wordBank, alphabet } from "./global-variables.js";
 const startButton = document.querySelector(".start-game-button");
 const keyboard = document.querySelector(".keyboard");
 const hiddenWord = document.querySelector(".hidden-word");
-const letterButtons = document.querySelectorAll(".keyboard");
+
+const livesLeftCounter = document.querySelector("#lives-counter");
 
 // 2 To play game
-// 2.1 display the keyboard for users to choose letters
-const displayKeyboard = () => {
-  //   let letterHTMl = "";
-  //   for (let index = 0; index < alphabet.length; index++) {
-  //     letterHTMl += alphabet[index];
-  //   }
-  //   keyboard.innerHTML = letterHTMl;
-  // };
 
-  alphabet.forEach((letter) => {
-    const letterHTML = `<button id="${letter}-button">${letter}</button>`;
-    return (keyboard.innerHTML += letterHTML);
-    // letterButton.addEventListener("click",)
-    // use that id in a queryselctor then add event listener
-  });
-};
-console.log(displayKeyboard());
-
-const getLetterInput = (event) => {
-  const userLetterInput = event.target.innerText;
-  guessedLetter = userLetterInput;
-  console.log(guessedLetter);
-};
-
-// event listener for letter buttons
-for (let index = 0; index < letterButtons.length; index++) {
-  letterButtons[index].addEventListener("click", getLetterInput);
-}
-
-// const handleKeyboardButtons = () => {
-//   const letterButton = document.querySelectorAll(".keyboard");
-
-// }
-
-// 2.2 generate random word for user to guess
+// 2.1 generate random word for user to guess
 let randomWord = "";
 const generateRandomWord = () => {
   randomWord = wordBank[Math.floor(Math.random() * wordBank.length)];
@@ -50,15 +18,16 @@ const generateRandomWord = () => {
 };
 console.log(generateRandomWord());
 
-// 2.3 display the random word but hidden
-const hideLetterHTML = (letter) => {
-  return `<span id="${letter}">_</span>`;
+// 2.2 display the random word but hidden
+// 2.2.1 function to display a letter from word with "_"
+const hideLetter = (letter) => {
+  return `<span class="hidden-letter" id="${letter}">_</span>`;
 };
-
+// 2.2.2 function to display each letter of random word hidden
 const displayHiddenWord = (word) => {
   for (let index = 0; index < word.length; index++) {
     const aLetterFromWord = word[index];
-    const wordHTML = hideLetterHTML(aLetterFromWord);
+    const wordHTML = hideLetter(aLetterFromWord);
     hiddenWord.innerHTML += wordHTML;
   }
   ////   randomWordLettersArr = randomWord.split("");
@@ -66,18 +35,49 @@ const displayHiddenWord = (word) => {
 };
 displayHiddenWord(randomWord);
 
-const startGame = () => {
-  removeOverlay();
-  generateRandomWord();
-  // displayHiddenWord();
-  // displayLivesLeft();
+// 2.3 display the keyboard for users to choose letters and recieve input
+// 2.3.1 function to display the keyboard in the keyboard inner html
+const displayKeyboard = () => {
+  alphabet.forEach((letter) => {
+    const letterHTML = `<button class="alphabet-buttons" id="${letter}-button">${letter}</button>`;
+    return (keyboard.innerHTML += letterHTML);
+  });
+};
+displayKeyboard();
+
+// 2.3.2 function to recieve input from user
+const letterButtons = document.querySelectorAll(".alphabet-buttons");
+let guessedLetter = "";
+const getLetterInput = (event) => {
+  let userLetterInput = event.target.innerText;
+  guessedLetter = userLetterInput;
+  console.log(guessedLetter);
 };
 
-startButton.addEventListener("click", startGame);
+// 2.3.4 event listener for letter buttons
+for (let index = 0; index < letterButtons.length; index++) {
+  letterButtons[index].addEventListener("click", getLetterInput);
+}
 
+// 2.3.5 check if guessedLetter = a letter in randomWord
+
+// -------------------------------
 // 2.4 display how many lives are left
+
+// let numOflivesLeft = [5, 4, 3, 2, 1, 0];
 // const displayLivesLeft = () => {
-//
-// }
+//   for (let index = 0; index < numOflivesLeft.length; index--) {
+//     livesLeftCounter.innerText += numOflivesLeft.
+//   }
+// };
+// -------------------------------
+// const startGame = () => {
+//   removeOverlay();
+//   generateRandomWord();
+//   // displayHiddenWord();
+//   // displayLivesLeft();
+// };
+
+// startButton.addEventListener("click", startGame);
 
 // 2.5 display how many lives are left
