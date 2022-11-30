@@ -1,81 +1,22 @@
+import { wordBank, alphabet } from "./global-variables.js";
+
 /*Global Variables*/
-const overlay = document.querySelector(".overlay");
+
 const startButton = document.querySelector(".start-game-button");
 const keyboard = document.querySelector(".keyboard");
 const hiddenWord = document.querySelector(".hidden-word");
-
-const alphabet = [
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-  "t",
-  "u",
-  "v",
-  "w",
-  "x",
-  "y",
-  "z",
-];
-
-const wordBank = [
-  "spaceship",
-  "cruiseship",
-  "cycling",
-  "funicular",
-  "walking",
-  "submarine",
-  "lorry",
-  "motorcycle",
-  "helicopter",
-  "tube",
-  "pedalo",
-  "kayak",
-];
-
-// 1. To Start Game
-// 1.1 Function to display overlay (start page) on load
-const displayOverlay = () => {
-  let htmlString = "";
-  htmlString += `
-  <section class="overlay-content">
-  <img src="https://media.istockphoto.com/illustrations/simple-illustration-of-hangman-game-illustration-id1196954772?k=6&m=1196954772&s=170667a&w=0&h=iNA3SlxYdtJZrtzu7uxEv18YCGEepC-Zs8gmSgvSg6c="
-  alt="Hangman" class="overlay-image"/> 
-  <h1>HANGMAN</h1>
-  <div class="start-game-button">
-  <a href="#game">
-        <button>PLAY</button>
-      </a>
-      </div>
-  </section>`;
-  overlay.innerHTML = htmlString;
-  // return (overlay.style.display = "block");
-};
-// 1.2 Function to remove overlay when "play" button is pressed
-const removeOverlay = () => {
-  return (overlay.style.display = "none");
-};
-
-overlay.addEventListener("load", displayOverlay);
+const letterButtons = document.querySelectorAll(".keyboard");
 
 // 2 To play game
 // 2.1 display the keyboard for users to choose letters
 const displayKeyboard = () => {
+  //   let letterHTMl = "";
+  //   for (let index = 0; index < alphabet.length; index++) {
+  //     letterHTMl += alphabet[index];
+  //   }
+  //   keyboard.innerHTML = letterHTMl;
+  // };
+
   alphabet.forEach((letter) => {
     const letterHTML = `<button id="${letter}-button">${letter}</button>`;
     return (keyboard.innerHTML += letterHTML);
@@ -85,7 +26,6 @@ const displayKeyboard = () => {
 };
 console.log(displayKeyboard());
 
-const letterButtons = document.querySelectorAll(".keyboard");
 const getLetterInput = (event) => {
   const userLetterInput = event.target.innerText;
   guessedLetter = userLetterInput;
@@ -115,16 +55,16 @@ const hideLetterHTML = (letter) => {
   return `<span id="${letter}">_</span>`;
 };
 
-// const displayHiddenWord = (word) => {
-//   for (let index = 0; index < word.length; index++) {
-//     const aLetterFromWord = word[index];
-//     const wordHTML = hideLetterHTML(aLetterFromWord);
-//     hiddenWord.innerHTML += wordHTML;
-//   }
-//   ////   randomWordLettersArr = randomWord.split("");
-//   ////   hiddenWord.innerHTML = randomWordLettersArr;
-// };
-// displayHiddenWord(randomWord);
+const displayHiddenWord = (word) => {
+  for (let index = 0; index < word.length; index++) {
+    const aLetterFromWord = word[index];
+    const wordHTML = hideLetterHTML(aLetterFromWord);
+    hiddenWord.innerHTML += wordHTML;
+  }
+  ////   randomWordLettersArr = randomWord.split("");
+  ////   hiddenWord.innerHTML = randomWordLettersArr;
+};
+displayHiddenWord(randomWord);
 
 const startGame = () => {
   removeOverlay();
@@ -141,8 +81,3 @@ startButton.addEventListener("click", startGame);
 // }
 
 // 2.5 display how many lives are left
-
-// 3 Game Over
-// 3.1 overlay for game over screen
-// 3.2 retry button
-// 3.3 new game button -> same function as the play button from the start?
