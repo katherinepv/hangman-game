@@ -45,52 +45,27 @@ const displayKeyboard = () => {
 };
 displayKeyboard();
 
-// // 2.3.2 function to recieve input from user
-// const letterButtons = document.querySelectorAll(".alphabet-buttons");
-// let guessedLetter = "";
-// const getLetterInput = (event) => {
-//   let userLetterInput = event.target.innerText;
-//   guessedLetter = userLetterInput;
-//   console.log(guessedLetter);
-// };
-
-//------------------------
-
-//All handle letter input functions rolled into 1
+// 2.3.2 handle letter buttons to replace dashes with letters if they match the random word
 let guessedLetter = "";
 const letterButtons = document.querySelectorAll(".alphabet-buttons");
+
 const handleLetterButtons = (event) => {
+  // this receives the user letter input
   let userLetterInput = event.target.innerText;
   guessedLetter = userLetterInput;
-
+  // this changes the random word into an array of letters
   let lettersFromRandomWordArr = randomWord.split("");
   let hiddenLetters = document.querySelectorAll(".hidden-letters");
-
+  // checks if user letter input is matches letters on the word to guess (random word)
   if (lettersFromRandomWordArr.includes(guessedLetter)) {
     lettersFromRandomWordArr.forEach((letterFromRandomWordArr, index) => {
       if (letterFromRandomWordArr == guessedLetter) {
+        // this replaces the dash for the corresponding letter guessed
         hiddenLetters[index].innerText = letterFromRandomWordArr;
       }
     });
   }
 };
-
-// // 2.3.4 event listener for letter buttons
-// for (let index = 0; index < letterButtons.length; index++) {
-//   letterButtons[index].addEventListener("click", getLetterInput);
-// }
-
-// // 2.3.5 check if guessedLetter = a letter in randomWord
-// const checkLettersMatch = (letter) => {
-//   const hiddenLetters = document.querySelectorAll(".hidden-letters");
-//   for (let index = 0; index < hiddenLetters.length; index++) {
-//     const hiddenLetter = hiddenLetters[index];
-//     if (hiddenLetter == guessedLetter) {
-//       hiddenLetter.innerHTML = letter;
-//     }
-//   }
-// };
-// checkLettersMatch(guessedLetter);
 
 for (let index = 0; index < letterButtons.length; index++) {
   letterButtons[index].addEventListener("click", handleLetterButtons);
