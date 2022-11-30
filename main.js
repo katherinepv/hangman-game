@@ -21,7 +21,7 @@ console.log(generateRandomWord());
 // 2.2 display the random word but hidden
 // 2.2.1 function to display a letter from word with "_"
 const hideLetter = (letter) => {
-  return `<span class="hidden-letter" id="${letter}">_</span>`;
+  return `<span class="hidden-letters" id="${letter}">_</span>`;
 };
 // 2.2.2 function to display each letter of random word hidden
 const displayHiddenWord = (word) => {
@@ -45,21 +45,56 @@ const displayKeyboard = () => {
 };
 displayKeyboard();
 
-// 2.3.2 function to recieve input from user
-const letterButtons = document.querySelectorAll(".alphabet-buttons");
+// // 2.3.2 function to recieve input from user
+// const letterButtons = document.querySelectorAll(".alphabet-buttons");
+// let guessedLetter = "";
+// const getLetterInput = (event) => {
+//   let userLetterInput = event.target.innerText;
+//   guessedLetter = userLetterInput;
+//   console.log(guessedLetter);
+// };
+
+//------------------------
+
+//All handle letter input functions rolled into 1
 let guessedLetter = "";
-const getLetterInput = (event) => {
+const letterButtons = document.querySelectorAll(".alphabet-buttons");
+const handleLetterButtons = (event) => {
   let userLetterInput = event.target.innerText;
   guessedLetter = userLetterInput;
-  console.log(guessedLetter);
+
+  let lettersFromRandomWordArr = randomWord.split("");
+  let hiddenLetters = document.querySelectorAll(".hidden-letters");
+
+  if (lettersFromRandomWordArr.includes(guessedLetter)) {
+    lettersFromRandomWordArr.forEach((letterFromRandomWordArr, index) => {
+      if (letterFromRandomWordArr == guessedLetter) {
+        hiddenLetters[index].innerText = letterFromRandomWordArr;
+      }
+    });
+  }
 };
 
-// 2.3.4 event listener for letter buttons
-for (let index = 0; index < letterButtons.length; index++) {
-  letterButtons[index].addEventListener("click", getLetterInput);
-}
+// // 2.3.4 event listener for letter buttons
+// for (let index = 0; index < letterButtons.length; index++) {
+//   letterButtons[index].addEventListener("click", getLetterInput);
+// }
 
-// 2.3.5 check if guessedLetter = a letter in randomWord
+// // 2.3.5 check if guessedLetter = a letter in randomWord
+// const checkLettersMatch = (letter) => {
+//   const hiddenLetters = document.querySelectorAll(".hidden-letters");
+//   for (let index = 0; index < hiddenLetters.length; index++) {
+//     const hiddenLetter = hiddenLetters[index];
+//     if (hiddenLetter == guessedLetter) {
+//       hiddenLetter.innerHTML = letter;
+//     }
+//   }
+// };
+// checkLettersMatch(guessedLetter);
+
+for (let index = 0; index < letterButtons.length; index++) {
+  letterButtons[index].addEventListener("click", handleLetterButtons);
+}
 
 // -------------------------------
 // 2.4 display how many lives are left

@@ -30,8 +30,19 @@
 }
 
 .keyboard {
+  margin: 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0.25rem;
+}
+
+.hidden-word {
+  text-align: center;
+}
+
+.alphabet-buttons {
+  background-color: rgb(234, 168, 190);
+  border-radius: 0.375rem;
 }
 
 * {
