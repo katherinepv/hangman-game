@@ -2,7 +2,7 @@ import { wordBank, alphabet } from "./global-variables.js";
 
 /*Global Variables*/
 
-const startButton = document.querySelector(".start-game-button");
+// const startButton = document.querySelector(".start-game-button");
 const keyboard = document.querySelector(".keyboard");
 const hiddenWord = document.querySelector(".hidden-word");
 
@@ -51,6 +51,12 @@ let correctGuessedLetters = 0;
 const letterButtons = document.querySelectorAll(".alphabet-buttons");
 const livesLeftCounter = document.querySelector("#lives-counter");
 
+const disableAllLetterButtons = () => {
+  letterButtons.forEach((button) => {
+    button.disabled = true;
+  });
+};
+
 const handleLetterButtons = (event) => {
   // this receives the user letter input
   let userLetterInput = event.target.innerText;
@@ -67,7 +73,7 @@ const handleLetterButtons = (event) => {
         hiddenLetters[index].innerText = letterFromRandomWordArr;
         correctGuessedLetters += 1;
         if (correctGuessedLetters == randomWord.length) {
-          winGame(); // write function for winning game
+          disableAllLetterButtons();
         }
       }
     });
@@ -77,7 +83,7 @@ const handleLetterButtons = (event) => {
     console.log(livesLeft);
     livesLeftCounter.innerHTML = `${livesLeft}`;
     if (livesLeft == 0) {
-      gameOver(); // write function for game over
+      disableAllLetterButtons();
     }
   }
 };
@@ -87,15 +93,13 @@ for (let index = 0; index < letterButtons.length; index++) {
 }
 
 // -------------------------------
-// 2.4 display how many lives are left
+// game over function
 
-// let numOflivesLeft = [5, 4, 3, 2, 1, 0];
-// const displayLivesLeft = () => {
-//   for (let index = 0; index < numOflivesLeft.length; index--) {
-//     livesLeftCounter.innerText += numOflivesLeft.
-//   }
-// };
-// -------------------------------
+// win function
+
+// disable buttons
+
+// ---------------------
 
 // const startGame = () => {
 //   removeOverlay();
@@ -103,5 +107,3 @@ for (let index = 0; index < letterButtons.length; index++) {
 //   // displayHiddenWord();
 //   // displayLivesLeft();
 // };
-
-// startButton.addEventListener("click", startGame);
