@@ -1,8 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Nosifer&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: 1rem;
+  padding: 0.125rem;
+}
+
 .game-container {
   min-width: 100vh;
   min-height: 100vh;
 }
-.game-container h1 {
+.game-container h2 {
   text-align: center;
   font-size: 2rem;
   color: darkgreen;
@@ -45,34 +56,43 @@
   border-radius: 0.375rem;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-  font-size: 1rem;
-  padding: 0.125rem;
-}
-
-.overlay {
-  height: 100%;
-  width: 100%;
+.start-page-overlay {
   position: fixed;
-  z-index: 1;
-  background-color: rgb(37, 84, 125);
+  /* Sit on top of the page content */
+  width: 100%;
+  /* Full width (cover the whole page) */
+  height: 100%;
+  /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(138, 3, 3);
+  /* Black background with opacity */
+  z-index: 2;
+  /* Specify a stack order in case you're using a different order for other elements */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
-.overlay h1 {
-  font-size: 4rem;
+.start-page-overlay h1 {
   text-align: center;
+  align-self: center;
 }
-.overlay .start-game-button {
-  position: absolute;
-  font-size: 3rem;
-  background-color: rgb(93, 93, 93);
+.start-page-overlay span {
+  font-size: 6rem;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+  padding: 0.25rem;
+  font-family: "Anton", sans-serif;
+}
+.start-page-overlay button {
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 2rem;
+  padding: 0.75rem;
+  font-family: "Nosifer", cursive;
 }
 
 .game-over-overlay {

@@ -1,12 +1,19 @@
 import { wordBank, alphabet } from "./global-variables.js";
 
-/*Global Variables*/
+// 1 Start Page
+const startPageOverlay = document.querySelector(".start-page-overlay");
+const startButton = document.querySelector("#start-game-button");
 
-// const startButton = document.querySelector(".start-game-button");
-const keyboard = document.querySelector(".keyboard");
-const hiddenWord = document.querySelector(".hidden-word");
+const startInitialGame = (event) => {
+  startPageOverlay.style.display = "none";
+};
+
+startButton.addEventListener("click", startInitialGame);
 
 // 2 To play game
+
+const keyboard = document.querySelector(".keyboard");
+const hiddenWord = document.querySelector(".hidden-word");
 
 // 2.1 generate random word for user to guess
 let randomWord = "";
@@ -19,7 +26,7 @@ console.log(generateRandomWord());
 // 2.2 display the random word but hidden
 // 2.2.1 function to display a letter from word with "_"
 const hideLetter = (letter) => {
-  return `<span class="hidden-letters" id="${letter}">_</span>`;
+  return `<span class="hidden-letters">_</span>`;
 };
 // 2.2.2 function to display each letter of random word hidden
 const displayHiddenWord = (word) => {
@@ -102,40 +109,6 @@ for (let index = 0; index < letterButtons.length; index++) {
   letterButtons[index].addEventListener("click", handleLetterButtons);
 }
 
-// game over function
-
-const gameOverOverlay = document.querySelector(".game-over-overlay");
-const gameOverOverlayOffButton = document.querySelector(
-  "#close-game-over-overlay-button"
-);
-const gameOverOverlayOn = () => {
-  gameOverOverlay.style.display = "block";
-};
-
-const removeGameOverOverlay = (event) => {
-  gameOverOverlay.style.display = "none";
-};
-
-gameOverOverlayOffButton.addEventListener("click", removeGameOverOverlay);
-
-//-----------------
-// win function
-const wonOverlay = document.querySelector(".won-game-overlay");
-const newGameOverlayButton = document.querySelector(
-  "#won-game-new-game-button"
-);
-
-const wonGameOverlayOn = () => {
-  wonOverlay.style.display = "block";
-};
-
-const removeWonGameOverlay = (event) => {
-  wonOverlay.style.display = "none";
-  // newGame();
-};
-
-newGameOverlayButton.addEventListener("click", removeWonGameOverlay);
-
 // ---------------------
 // retry button
 const retryButton = document.querySelector("#action-buttons__retry");
@@ -143,9 +116,6 @@ const retryButton = document.querySelector("#action-buttons__retry");
 const retrySameRandomWord = (event) => {
   enableAllLetterButtons();
   hiddenWord.innerHTML = "";
-  // removeOverlay();
-  // randomWord = generateRandomWord();
-  // console.log(randomWord);
   displayHiddenWord(randomWord);
   livesLeftCounter.innerHTML = 5;
   livesLeft = 5;
@@ -183,3 +153,43 @@ const newGame = (event) => {
 };
 
 newGameButton.addEventListener("click", newGame);
+
+// game over function
+
+const gameOverOverlay = document.querySelector(".game-over-overlay");
+const gameOverOverlayOffButton = document.querySelector(
+  "#close-game-over-overlay-button"
+);
+const gameOverOverlayOn = () => {
+  gameOverOverlay.style.display = "block";
+};
+
+const removeGameOverOverlay = (event) => {
+  gameOverOverlay.style.display = "none";
+};
+
+gameOverOverlayOffButton.addEventListener("click", removeGameOverOverlay);
+
+//-----------------
+// win function
+const wonOverlay = document.querySelector(".won-game-overlay");
+const newGameOverlayButton = document.querySelector(
+  "#won-game-new-game-button"
+);
+const closeWonOverlayButton = document.querySelector("#close-won-game-overlay");
+const wonGameOverlayOn = () => {
+  wonOverlay.style.display = "block";
+};
+
+const closeWonOverlay = (event) => {
+  wonOverlay.style.display = "none";
+};
+
+const startNewGameFromWonGame = (event) => {
+  wonOverlay.style.display = "none";
+  newGame(event);
+};
+
+closeWonOverlayButton.addEventListener("click", closeWonOverlay);
+
+newGameOverlayButton.addEventListener("click", startNewGameFromWonGame);
