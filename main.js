@@ -58,6 +58,7 @@ const disableAllLetterButtons = () => {
 };
 
 const handleLetterButtons = (event) => {
+  event.target.disabled = true;
   // this receives the user letter input
   let userLetterInput = event.target.innerText;
   guessedLetter = userLetterInput;
@@ -84,6 +85,7 @@ const handleLetterButtons = (event) => {
     livesLeftCounter.innerHTML = `${livesLeft}`;
     if (livesLeft == 0) {
       disableAllLetterButtons();
+      gameOverOverlayOn();
     }
   }
 };
@@ -95,10 +97,21 @@ for (let index = 0; index < letterButtons.length; index++) {
 // -------------------------------
 // game over function
 
+const gameOverOverlay = document.querySelector(".game-over-overlay");
+
+const gameOverOverlayOn = () => {
+  gameOverOverlay.style.display = "block";
+};
+
+// const gameOverOverlayOff = () => {
+//   gameOverOverlay.style.display = "none";
+// };
+
+// const gameOver = () => {
+//   gameOverOverlayOn();
+// };
+//-----------------
 // win function
-
-// disable buttons
-
 // ---------------------
 
 // const startGame = () => {
