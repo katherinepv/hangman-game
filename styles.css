@@ -6,71 +6,93 @@
   box-sizing: border-box;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   font-size: 1rem;
-  padding: 0.125rem;
 }
 
 .game-container {
+  margin-top: 2rem;
   min-width: 100vh;
   min-height: 100vh;
+  background-color: #315454;
 }
 .game-container h2 {
+  font-family: "Nosifer", cursive;
   text-align: center;
-  font-size: 2rem;
-  color: darkgreen;
+  font-size: 2.5rem;
+  color: #740404;
 }
 .game-container img {
-  -o-object-fit: scale-down;
-     object-fit: scale-down;
+  display: block;
+  width: 70vw;
+  margin-left: auto;
+  margin-right: auto;
 }
 .game-container .lives-left {
   text-align: center;
+  font-family: "Anton", sans-serif;
+  font-size: 1.75rem;
 }
-
-.action-buttons {
+.game-container .lives-left #lives-counter {
+  font-family: "Anton", sans-serif;
+  font-size: 1.75rem;
+  color: #740404;
+}
+.game-container .hidden-word {
+  text-align: center;
+  width: 15rem;
+  margin: 1rem auto 1rem auto;
+}
+.game-container .hidden-word .hidden-letters {
+  font-family: "Anton", sans-serif;
+  color: #045863;
+  font-size: 2.5rem;
+  padding: 0.125rem;
+  text-transform: uppercase;
+}
+.game-container .keyboard {
+  width: 20rem;
+  margin: 1rem auto 1rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.game-container .keyboard .alphabet-buttons {
+  background-color: #740404;
+  color: #d6b6b8;
+  font-size: 1.25rem;
+  border-radius: 0.375rem;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  margin: 0.25rem;
+  font-family: "Nosifer", cursive;
+}
+.game-container .action-buttons {
   margin-top: 1rem;
   text-align: center;
 }
-.action-buttons .action-buttons__restart,
-.action-buttons .action-buttons__solution,
-.action-buttons .action-buttons__new-game {
+.game-container .action-buttons #action-buttons__retry,
+.game-container .action-buttons #action-buttons__solution,
+.game-container .action-buttons #action-buttons__new-game {
   font-size: 1rem;
-  border-radius: 0.5rem;
-  border-style: solid;
-  border-color: magenta;
-  background-color: palevioletred;
-}
-
-.keyboard {
-  margin: 1rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  gap: 0.25rem;
-}
-
-.hidden-word {
-  text-align: center;
-}
-
-.alphabet-buttons {
-  background-color: rgb(234, 168, 190);
   border-radius: 0.375rem;
+  border-style: solid;
+  background-color: #045863;
+  color: #d6b6b8;
+  padding: 0.25rem 0.5rem;
+  font-family: "Anton", sans-serif;
 }
 
 .start-page-overlay {
   position: fixed;
-  /* Sit on top of the page content */
   width: 100%;
-  /* Full width (cover the whole page) */
   height: 100%;
-  /* Full height (cover the whole page) */
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background-color: rgb(138, 3, 3);
-  /* Black background with opacity */
   z-index: 2;
-  /* Specify a stack order in case you're using a different order for other elements */
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
