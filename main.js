@@ -6,8 +6,6 @@ const startButton = document.querySelector(".start-game-button");
 const keyboard = document.querySelector(".keyboard");
 const hiddenWord = document.querySelector(".hidden-word");
 
-const livesLeftCounter = document.querySelector("#lives-counter");
-
 // 2 To play game
 
 // 2.1 generate random word for user to guess
@@ -45,14 +43,19 @@ const displayKeyboard = () => {
 };
 displayKeyboard();
 
-// 2.3.2 handle letter buttons to replace dashes with letters if they match the random word
+// 2.3.2 handle letter buttons to replace dashes with letters if they match the random word + handle lives
 let guessedLetter = "";
+let livesLeft = 5;
+console.log(livesLeft);
+let correctGuessedLetters = 0;
 const letterButtons = document.querySelectorAll(".alphabet-buttons");
+const livesLeftCounter = document.querySelector("#lives-counter");
 
 const handleLetterButtons = (event) => {
   // this receives the user letter input
   let userLetterInput = event.target.innerText;
   guessedLetter = userLetterInput;
+  console.log(guessedLetter);
   // this changes the random word into an array of letters
   let lettersFromRandomWordArr = randomWord.split("");
   let hiddenLetters = document.querySelectorAll(".hidden-letters");
@@ -62,8 +65,20 @@ const handleLetterButtons = (event) => {
       if (letterFromRandomWordArr == guessedLetter) {
         // this replaces the dash for the corresponding letter guessed
         hiddenLetters[index].innerText = letterFromRandomWordArr;
+        correctGuessedLetters += 1;
+        if (correctGuessedLetters == randomWord.length) {
+          winGame(); // write function for winning game
+        }
       }
     });
+  } else {
+    //lose life
+    livesLeft -= 1;
+    console.log(livesLeft);
+    livesLeftCounter.innerHTML = `${livesLeft}`;
+    if (livesLeft == 0) {
+      gameOver(); // write function for game over
+    }
   }
 };
 
@@ -81,6 +96,7 @@ for (let index = 0; index < letterButtons.length; index++) {
 //   }
 // };
 // -------------------------------
+
 // const startGame = () => {
 //   removeOverlay();
 //   generateRandomWord();
@@ -89,5 +105,3 @@ for (let index = 0; index < letterButtons.length; index++) {
 // };
 
 // startButton.addEventListener("click", startGame);
-
-// 2.5 display how many lives are left
