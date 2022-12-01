@@ -75,6 +75,7 @@ const handleLetterButtons = (event) => {
         correctGuessedLetters += 1;
         if (correctGuessedLetters == randomWord.length) {
           disableAllLetterButtons();
+          wonGameOverlayOn();
         }
       }
     });
@@ -94,24 +95,39 @@ for (let index = 0; index < letterButtons.length; index++) {
   letterButtons[index].addEventListener("click", handleLetterButtons);
 }
 
-// -------------------------------
 // game over function
 
 const gameOverOverlay = document.querySelector(".game-over-overlay");
-
+const gameOverOverlayOffButton = document.querySelector(
+  "#close-game-over-overlay-button"
+);
 const gameOverOverlayOn = () => {
   gameOverOverlay.style.display = "block";
 };
 
-// const gameOverOverlayOff = () => {
-//   gameOverOverlay.style.display = "none";
-// };
+const removeGameOverOverlay = (event) => {
+  gameOverOverlay.style.display = "none";
+};
 
-// const gameOver = () => {
-//   gameOverOverlayOn();
-// };
+gameOverOverlayOffButton.addEventListener("click", removeGameOverOverlay);
+
 //-----------------
 // win function
+const wonOverlay = document.querySelector(".won-game-overlay");
+const newGameOverlayButton = document.querySelector(
+  "#won-game-new-game-button"
+);
+
+const wonGameOverlayOn = () => {
+  wonOverlay.style.display = "block";
+};
+
+const removeWonGameOverlay = (event) => {
+  wonOverlay.style.display = "none";
+};
+
+newGameOverlayButton.addEventListener("click", removeWonGameOverlay);
+
 // ---------------------
 
 // const startGame = () => {
