@@ -57,6 +57,12 @@ const disableAllLetterButtons = () => {
   });
 };
 
+const enableAllLetterButtons = () => {
+  letterButtons.forEach((button) => {
+    button.disabled = false;
+  });
+};
+
 const handleLetterButtons = (event) => {
   event.target.disabled = true;
   // this receives the user letter input
@@ -73,6 +79,7 @@ const handleLetterButtons = (event) => {
         // this replaces the dash for the corresponding letter guessed
         hiddenLetters[index].innerText = letterFromRandomWordArr;
         correctGuessedLetters += 1;
+        console.log(correctGuessedLetters);
         if (correctGuessedLetters == randomWord.length) {
           disableAllLetterButtons();
           wonGameOverlayOn();
@@ -124,15 +131,55 @@ const wonGameOverlayOn = () => {
 
 const removeWonGameOverlay = (event) => {
   wonOverlay.style.display = "none";
+  // newGame();
 };
 
 newGameOverlayButton.addEventListener("click", removeWonGameOverlay);
 
 // ---------------------
+// retry button
+const retryButton = document.querySelector("#action-buttons__retry");
 
-// const startGame = () => {
-//   removeOverlay();
-//   generateRandomWord();
-//   // displayHiddenWord();
-//   // displayLivesLeft();
-// };
+const retrySameRandomWord = (event) => {
+  enableAllLetterButtons();
+  hiddenWord.innerHTML = "";
+  // removeOverlay();
+  // randomWord = generateRandomWord();
+  // console.log(randomWord);
+  displayHiddenWord(randomWord);
+  livesLeftCounter.innerHTML = 5;
+  livesLeft = 5;
+  correctGuessedLetters = 0;
+};
+
+retryButton.addEventListener("click", retrySameRandomWord);
+//---------------------
+// Show solution button
+
+const solutionButton = document.querySelector("#action-buttons__solution");
+const showSolution = (event) => {
+  hiddenWord.innerHTML = randomWord;
+  disableAllLetterButtons();
+};
+
+solutionButton.addEventListener("click", showSolution);
+
+// ---------------------
+// new game button
+
+const newGameButton = document.querySelector("#action-buttons__new-game");
+console.log(newGameButton);
+
+const newGame = (event) => {
+  enableAllLetterButtons();
+  hiddenWord.innerHTML = "";
+  // removeOverlay();
+  randomWord = generateRandomWord();
+  console.log(randomWord);
+  displayHiddenWord(randomWord);
+  livesLeftCounter.innerHTML = 5;
+  livesLeft = 5;
+  correctGuessedLetters = 0;
+};
+
+newGameButton.addEventListener("click", newGame);
