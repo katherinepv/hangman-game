@@ -128,7 +128,7 @@ retryButton.addEventListener("click", retrySameRandomWord);
 
 const solutionButton = document.querySelector("#action-buttons__solution");
 const showSolution = (event) => {
-  hiddenWord.innerHTML = randomWord;
+  hiddenWord.innerHTML = `<p class="solution-word">${randomWord}</p>`;
   disableAllLetterButtons();
 };
 

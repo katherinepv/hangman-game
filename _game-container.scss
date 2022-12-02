@@ -1,12 +1,12 @@
 @use "./variables" as *;
 
 .game-container {
-    margin-top: 2rem;
     min-width: 100vh;
     min-height: 100vh;
     background-color: $background-secondary;
 
     h2 {
+        padding-top: 1rem;
         font-family: $secondary-font;
         text-align: center;
         font-size: 2.5rem;
@@ -44,6 +44,14 @@
             padding: 0.125rem;
             text-transform: uppercase;
         }
+    }
+
+    .solution-word {
+        font-family: $primary-font;
+        color: $font-color-tertiary;
+        font-size: 2.5rem;
+        padding: 0.125rem;
+        text-transform: uppercase;
     }
 
     .keyboard {

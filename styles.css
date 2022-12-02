@@ -9,12 +9,12 @@
 }
 
 .game-container {
-  margin-top: 2rem;
   min-width: 100vh;
   min-height: 100vh;
   background-color: #315454;
 }
 .game-container h2 {
+  padding-top: 1rem;
   font-family: "Nosifer", cursive;
   text-align: center;
   font-size: 2.5rem;
@@ -42,6 +42,13 @@
   margin: 1rem auto 1rem auto;
 }
 .game-container .hidden-word .hidden-letters {
+  font-family: "Anton", sans-serif;
+  color: #045863;
+  font-size: 2.5rem;
+  padding: 0.125rem;
+  text-transform: uppercase;
+}
+.game-container .solution-word {
   font-family: "Anton", sans-serif;
   color: #045863;
   font-size: 2.5rem;
@@ -97,13 +104,16 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  background-image: url("red-door-background.jpg");
+  background-size: 100vh;
 }
 .start-page-overlay h1 {
   text-align: center;
   align-self: center;
+  margin: 1rem auto 1rem auto;
 }
 .start-page-overlay span {
-  font-size: 6rem;
+  font-size: 5.5rem;
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
   padding: 0.25rem;
@@ -119,38 +129,84 @@
 
 .game-over-overlay {
   position: fixed;
-  /* Sit on top of the page content */
   display: none;
-  /* Hidden by default */
   width: 100%;
-  /* Full width (cover the whole page) */
   height: 100%;
-  /* Full height (cover the whole page) */
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  /* Black background with opacity */
+  background-color: rgb(138, 3, 3);
+  opacity: 95%;
   z-index: 2;
-  /* Specify a stack order in case you're using a different order for other elements */
+}
+.game-over-overlay .game-over-overlay-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.game-over-overlay .game-over-overlay-content h3 {
+  font-size: 6rem;
+  font-family: "Nosifer", cursive;
+  color: rgb(52, 52, 52);
+  text-align: center;
+  opacity: 100%;
+  z-index: 3;
+}
+.game-over-overlay .game-over-overlay-content #close-game-over-overlay-button {
+  font-size: 1.5rem;
+  font-family: "Nosifer", cursive;
+  color: #740404;
+  background-color: #d6b6b8;
+  padding: 0.5rem;
 }
 
 .won-game-overlay {
   position: fixed;
-  /* Sit on top of the page content */
   display: none;
-  /* Hidden by default */
   width: 100%;
-  /* Full width (cover the whole page) */
   height: 100%;
-  /* Full height (cover the whole page) */
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(255, 145, 28, 0.5);
-  /* Black background with opacity */
+  background-color: #045863;
+  opacity: 95%;
   z-index: 2;
-  /* Specify a stack order in case you're using a different order for other elements */
+  display: flex;
+  flex-direction: column;
+}
+.won-game-overlay .won-game-overlay-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.won-game-overlay .won-game-overlay-content #close-won-game-overlay {
+  font-size: 1rem;
+  border-radius: 0.365rem;
+  background-color: rgb(138, 3, 3);
+  color: #d6b6b8;
+  align-items: baseline;
+  padding: 1rem;
+  font-family: "Anton", sans-serif;
+}
+.won-game-overlay .won-game-overlay-content h4 {
+  font-size: 6rem;
+  font-family: "Anton", sans-serif;
+  color: #740404;
+  text-align: center;
+  opacity: 100%;
+}
+.won-game-overlay .won-game-overlay-content #won-game-new-game-button {
+  font-size: 2rem;
+  font-family: "Nosifer", cursive;
+  color: #740404;
+  background-color: #d6b6b8;
+  padding: 0.5rem;
 }/*# sourceMappingURL=styles.css.map */
