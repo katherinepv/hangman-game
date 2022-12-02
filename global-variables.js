@@ -28,18 +28,18 @@ export const alphabet = [
 ];
 
 export const wordBank = [
-  "spaceship",
-  "cruiseship",
-  "cycling",
-  "funicular",
-  "walking",
-  "submarine",
-  "lorry",
-  "motorcycle",
-  "helicopter",
-  "tube",
-  "pedalo",
-  "kayak",
+  "alien",
+  "ghost",
+  "ghoul",
+  "shining",
+  "pumpkin",
+  "vampire",
+  "zombie",
+  "monster",
+  "werewolf",
+  "witch",
+  "cauldron",
+  "cobweb",
 ];
 
 export const livesLeftImages = {
