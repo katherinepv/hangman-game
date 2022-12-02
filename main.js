@@ -1,4 +1,4 @@
-import { wordBank, alphabet } from "./global-variables.js";
+import { wordBank, alphabet, livesLeftImages } from "./global-variables.js";
 
 // 1 Start Page
 const startPageOverlay = document.querySelector(".start-page-overlay");
@@ -35,8 +35,6 @@ const displayHiddenWord = (word) => {
     const wordHTML = hideLetter(aLetterFromWord);
     hiddenWord.innerHTML += wordHTML;
   }
-  ////   randomWordLettersArr = randomWord.split("");
-  ////   hiddenWord.innerHTML = randomWordLettersArr;
 };
 displayHiddenWord(randomWord);
 
@@ -52,7 +50,7 @@ displayKeyboard();
 
 // 2.3.2 handle letter buttons to replace dashes with letters if they match the random word + handle lives
 let guessedLetter = "";
-let livesLeft = 5;
+let livesLeft = 7;
 console.log(livesLeft);
 let correctGuessedLetters = 0;
 const letterButtons = document.querySelectorAll(".alphabet-buttons");
@@ -69,6 +67,34 @@ const enableAllLetterButtons = () => {
     button.disabled = false;
   });
 };
+
+// lives left images
+
+const livesLeftImage = document.querySelector(".lives-left-image");
+
+const renderLivesLeftImage = (livesLeft) => {
+  livesLeftImage.innerHTML = "";
+
+  if (livesLeft == 7) {
+    return (livesLeftImage.innerHTML = `<img class="lives-left-image" src="${livesLeftImages.sevenLivesLeft}"/>`);
+  } else if (livesLeft == 6) {
+    return (livesLeftImage.innerHTML = `<img class="lives-left-image" src="${livesLeftImages.sixLivesLeft}"/>`);
+  } else if (livesLeft == 5) {
+    return (livesLeftImage.innerHTML = `<img class="lives-left-image" src="${livesLeftImages.fiveLivesLeft}"/>`);
+  } else if (livesLeft == 4) {
+    return (livesLeftImage.innerHTML = `<img class="lives-left-image" src="${livesLeftImages.fourLivesLeft}"/>`);
+  } else if (livesLeft == 3) {
+    return (livesLeftImage.innerHTML = `<img class="lives-left-image" src="${livesLeftImages.threeLivesLeft}"/>`);
+  } else if (livesLeft == 2) {
+    return (livesLeftImage.innerHTML = `<img class="lives-left-image" src="${livesLeftImages.twoLivesLeft}"/>`);
+  } else if (livesLeft == 1) {
+    return (livesLeftImage.innerHTML = `<img class="lives-left-image" src="${livesLeftImages.oneLifeLeft}"/>`);
+  } else {
+    return (livesLeftImage.innerHTML = `<img class="lives-left-image" src="${livesLeftImages.zeroLivesLeft}"/>`);
+  }
+};
+
+//----------------
 
 const handleLetterButtons = (event) => {
   event.target.disabled = true;
@@ -117,8 +143,8 @@ const retrySameRandomWord = (event) => {
   enableAllLetterButtons();
   hiddenWord.innerHTML = "";
   displayHiddenWord(randomWord);
-  livesLeftCounter.innerHTML = 5;
-  livesLeft = 5;
+  livesLeftCounter.innerHTML = 7;
+  livesLeft = 7;
   correctGuessedLetters = 0;
 };
 
@@ -147,8 +173,8 @@ const newGame = (event) => {
   randomWord = generateRandomWord();
   console.log(randomWord);
   displayHiddenWord(randomWord);
-  livesLeftCounter.innerHTML = 5;
-  livesLeft = 5;
+  livesLeftCounter.innerHTML = 7;
+  livesLeft = 7;
   correctGuessedLetters = 0;
 };
 

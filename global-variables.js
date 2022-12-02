@@ -41,3 +41,14 @@ export const wordBank = [
   "pedalo",
   "kayak",
 ];
+
+export const livesLeftImages = {
+  sevenLivesLeft: "./hangmanImages/7LivesLeftImage.png",
+  sixLivesLeft: "./hangmanImages/6LivesLeftImage.png",
+  fiveLivesLeft: "./hangmanImages/5LivesLeftImage.png",
+  fourLivesLeft: "./hangmanImages/4LivesLeftImage.png",
+  threeLivesLeft: "./hangmanImages/3LivesLeftImage.png",
+  twoLivesLeft: "./hangmanImages/2LivesLeftImage.png",
+  oneLifeLeft: "./hangmanImages/1LifeLeftImage.png",
+  zeroLivesLeft: "./hangmanImages/0LivesLeftImage.png",
+};

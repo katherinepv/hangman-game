@@ -90,6 +90,92 @@
   font-family: "Anton", sans-serif;
 }
 
+@media screen and (min-width: 768px) {
+  .game-container {
+    min-width: 100vh;
+    min-height: 100vh;
+    background-color: #315454;
+  }
+  .game-container h2 {
+    padding-top: 1rem;
+    font-family: "Nosifer", cursive;
+    text-align: center;
+    font-size: 4rem;
+    color: #740404;
+  }
+  .game-container img {
+    display: block;
+    width: 20rem;
+    margin-left: auto;
+    margin-right: auto;
+    grid-area: image;
+  }
+  .game-container .lives-left {
+    text-align: center;
+    font-family: "Anton", sans-serif;
+    font-size: 2.5rem;
+  }
+  .game-container .lives-left #lives-counter {
+    font-family: "Anton", sans-serif;
+    font-size: 2.5rem;
+    color: #740404;
+  }
+  .game-container .hidden-word {
+    text-align: center;
+    width: 15rem;
+    margin: 1rem auto 1rem auto;
+  }
+  .game-container .hidden-word .hidden-letters {
+    font-family: "Anton", sans-serif;
+    color: #045863;
+    font-size: 2.5rem;
+    padding: 0.125rem;
+    text-transform: uppercase;
+  }
+  .game-container .solution-word {
+    font-family: "Anton", sans-serif;
+    color: #045863;
+    font-size: 2.5rem;
+    padding: 0.125rem;
+    text-transform: uppercase;
+  }
+  .game-container .keyboard {
+    width: 50rem;
+    margin: 1rem auto 1rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .game-container .keyboard .alphabet-buttons {
+    background-color: #740404;
+    color: #d6b6b8;
+    font-size: 1.25rem;
+    border-radius: 0.375rem;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    margin: 0.25rem;
+    font-family: "Nosifer", cursive;
+  }
+  .game-container .action-buttons {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  .game-container .action-buttons #action-buttons__retry,
+.game-container .action-buttons #action-buttons__solution,
+.game-container .action-buttons #action-buttons__new-game {
+    font-size: 1rem;
+    border-radius: 0.375rem;
+    border-style: solid;
+    background-color: #045863;
+    color: #d6b6b8;
+    padding: 0.25rem 0.5rem;
+    font-family: "Anton", sans-serif;
+    width: 8rem;
+    height: 2.5rem;
+  }
+}
 .start-page-overlay {
   position: fixed;
   width: 100%;
