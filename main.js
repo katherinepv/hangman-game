@@ -121,6 +121,7 @@ const retrySameRandomWord = (event) => {
   livesLeftCounter.innerHTML = 7;
   livesLeft = 7;
   correctGuessedLetters = 0;
+  livesLeftImage.src = livesLeftImages[livesLeft];
 };
 
 retryButton.addEventListener("click", retrySameRandomWord);
@@ -151,6 +152,7 @@ const newGame = (event) => {
   livesLeftCounter.innerHTML = 7;
   livesLeft = 7;
   correctGuessedLetters = 0;
+  livesLeftImage.src = livesLeftImages[livesLeft];
 };
 
 newGameButton.addEventListener("click", newGame);
