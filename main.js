@@ -89,7 +89,8 @@ const handleLetterButtons = (event) => {
         console.log(correctGuessedLetters);
         if (correctGuessedLetters == randomWord.length) {
           disableAllLetterButtons();
-          wonGameOverlayOn();
+          const delayOverlay = setTimeout(wonGameOverlayOn, 1000);
+          return delayOverlay;
         }
       }
     });

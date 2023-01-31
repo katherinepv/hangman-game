@@ -63,6 +63,9 @@
   justify-content: center;
   align-items: center;
 }
+.game-container .keyboard .alphabet-buttons:disabled {
+  background: rgb(46, 46, 46);
+}
 .game-container .keyboard .alphabet-buttons {
   background-color: #740404;
   color: #d6b6b8;
@@ -73,6 +76,9 @@
   height: 2rem;
   margin: 0.25rem;
   font-family: "Nosifer", cursive;
+}
+.game-container .keyboard .alphabet-buttons:disabled {
+  background: rgb(53, 52, 52);
 }
 .game-container .action-buttons {
   margin-top: 1rem;
