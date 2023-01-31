@@ -1,4 +1,5 @@
 import { wordBank, alphabet, livesLeftImages } from "./global-variables.js";
+const livesLeftImage = document.querySelector(".lives-left-image");
 
 // 1 Start Page
 const startPageOverlay = document.querySelector(".start-page-overlay");
@@ -68,34 +69,7 @@ const enableAllLetterButtons = () => {
   });
 };
 
-// lives left images
-
-const livesLeftImage = document.querySelector(".lives-left-image");
-
-const renderLivesLeftImage = (livesLeft) => {
-  livesLeftImage.innerHTML = "";
-
-  if (livesLeft == 7) {
-    return (livesLeftImage.innerHTML = `<img class="lives-left-image" src="${livesLeftImages.sevenLivesLeft}"/>`);
-  } else if (livesLeft == 6) {
-    return (livesLeftImage.innerHTML = `<img class="lives-left-image" src="${livesLeftImages.sixLivesLeft}"/>`);
-  } else if (livesLeft == 5) {
-    return (livesLeftImage.innerHTML = `<img class="lives-left-image" src="${livesLeftImages.fiveLivesLeft}"/>`);
-  } else if (livesLeft == 4) {
-    return (livesLeftImage.innerHTML = `<img class="lives-left-image" src="${livesLeftImages.fourLivesLeft}"/>`);
-  } else if (livesLeft == 3) {
-    return (livesLeftImage.innerHTML = `<img class="lives-left-image" src="${livesLeftImages.threeLivesLeft}"/>`);
-  } else if (livesLeft == 2) {
-    return (livesLeftImage.innerHTML = `<img class="lives-left-image" src="${livesLeftImages.twoLivesLeft}"/>`);
-  } else if (livesLeft == 1) {
-    return (livesLeftImage.innerHTML = `<img class="lives-left-image" src="${livesLeftImages.oneLifeLeft}"/>`);
-  } else {
-    return (livesLeftImage.innerHTML = `<img class="lives-left-image" src="${livesLeftImages.zeroLivesLeft}"/>`);
-  }
-};
-
-//----------------
-
+// main game
 const handleLetterButtons = (event) => {
   event.target.disabled = true;
   // this receives the user letter input
@@ -124,6 +98,7 @@ const handleLetterButtons = (event) => {
     livesLeft -= 1;
     console.log(livesLeft);
     livesLeftCounter.innerHTML = `${livesLeft}`;
+    livesLeftImage.src = livesLeftImages[livesLeft];
     if (livesLeft == 0) {
       disableAllLetterButtons();
       gameOverOverlayOn();

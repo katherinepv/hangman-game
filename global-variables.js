@@ -43,12 +43,12 @@ export const wordBank = [
 ];
 
 export const livesLeftImages = {
-  sevenLivesLeft: "./hangmanImages/7LivesLeftImage.png",
-  sixLivesLeft: "./hangmanImages/6LivesLeftImage.png",
-  fiveLivesLeft: "./hangmanImages/5LivesLeftImage.png",
-  fourLivesLeft: "./hangmanImages/4LivesLeftImage.png",
-  threeLivesLeft: "./hangmanImages/3LivesLeftImage.png",
-  twoLivesLeft: "./hangmanImages/2LivesLeftImage.png",
-  oneLifeLeft: "./hangmanImages/1LifeLeftImage.png",
-  zeroLivesLeft: "./hangmanImages/0LivesLeftImage.png",
+  7: "./hangmanImages/7LivesLeftImage.png",
+  6: "./hangmanImages/6LivesLeftImage.png",
+  5: "./hangmanImages/5LivesLeftImage.png",
+  4: "./hangmanImages/4LivesLeftImage.png",
+  3: "./hangmanImages/3LivesLeftImage.png",
+  2: "./hangmanImages/2LivesLeftImage.png",
+  1: "./hangmanImages/1LifeLeftImage.png",
+  0: "./hangmanImages/0LivesLeftImage.png",
 };
