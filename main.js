@@ -52,7 +52,6 @@ displayKeyboard();
 // 2.3.2 handle letter buttons to replace dashes with letters if they match the random word + handle lives
 let guessedLetter = "";
 let livesLeft = 7;
-console.log(livesLeft);
 let correctGuessedLetters = 0;
 const letterButtons = document.querySelectorAll(".alphabet-buttons");
 const livesLeftCounter = document.querySelector("#lives-counter");
@@ -75,7 +74,6 @@ const handleLetterButtons = (event) => {
   // this receives the user letter input
   let userLetterInput = event.target.innerText;
   guessedLetter = userLetterInput;
-  console.log(guessedLetter);
   // this changes the random word into an array of letters
   let lettersFromRandomWordArr = randomWord.split("");
   let hiddenLetters = document.querySelectorAll(".hidden-letters");
@@ -86,18 +84,15 @@ const handleLetterButtons = (event) => {
         // this replaces the dash for the corresponding letter guessed
         hiddenLetters[index].innerText = letterFromRandomWordArr;
         correctGuessedLetters += 1;
-        console.log(correctGuessedLetters);
         if (correctGuessedLetters == randomWord.length) {
           disableAllLetterButtons();
-          const delayOverlay = setTimeout(wonGameOverlayOn, 1000);
-          return delayOverlay;
+          wonGameOverlayOn();
         }
       }
     });
   } else {
     //lose life
     livesLeft -= 1;
-    console.log(livesLeft);
     livesLeftCounter.innerHTML = `${livesLeft}`;
     livesLeftImage.src = livesLeftImages[livesLeft];
     if (livesLeft == 0) {
@@ -141,14 +136,11 @@ solutionButton.addEventListener("click", showSolution);
 // new game button
 
 const newGameButton = document.querySelector("#action-buttons__new-game");
-console.log(newGameButton);
 
 const newGame = (event) => {
   enableAllLetterButtons();
   hiddenWord.innerHTML = "";
-  // removeOverlay();
   randomWord = generateRandomWord();
-  console.log(randomWord);
   displayHiddenWord(randomWord);
   livesLeftCounter.innerHTML = 7;
   livesLeft = 7;
@@ -164,8 +156,13 @@ const gameOverOverlay = document.querySelector(".game-over-overlay");
 const gameOverOverlayOffButton = document.querySelector(
   "#close-game-over-overlay-button"
 );
+
 const gameOverOverlayOn = () => {
-  gameOverOverlay.style.display = "block";
+  const delayGameOverOverlay = setTimeout(
+    () => (gameOverOverlay.style.display = "block"),
+    1000
+  );
+  return delayGameOverOverlay;
 };
 
 const removeGameOverOverlay = (event) => {
@@ -182,7 +179,11 @@ const newGameOverlayButton = document.querySelector(
 );
 const closeWonOverlayButton = document.querySelector("#close-won-game-overlay");
 const wonGameOverlayOn = () => {
-  wonOverlay.style.display = "block";
+  const delayWonGameOverlay = setTimeout(
+    () => (wonOverlay.style.display = "block"),
+    1000
+  );
+  return delayWonGameOverlay;
 };
 
 const closeWonOverlay = (event) => {
