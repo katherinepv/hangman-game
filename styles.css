@@ -11,7 +11,6 @@
 .game-container {
   min-width: 100vh;
   min-height: 100vh;
-  background-color: #315454;
 }
 .game-container h2 {
   padding-top: 1rem;
@@ -199,13 +198,8 @@
   background-image: url("red-door-background.jpg");
   background-size: 100vh;
 }
-.start-page-overlay h1 {
-  text-align: center;
-  align-self: center;
-  margin: 1rem auto 1rem auto;
-}
 .start-page-overlay span {
-  font-size: 5.5rem;
+  font-size: 4.5rem;
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
   padding: 0.25rem;
@@ -214,7 +208,7 @@
 .start-page-overlay button {
   background-color: #000000;
   color: #ffffff;
-  font-size: 2rem;
+  font-size: 1.75rem;
   padding: 0.75rem;
   font-family: "Nosifer", cursive;
 }

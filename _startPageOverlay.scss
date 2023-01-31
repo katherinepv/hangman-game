@@ -19,14 +19,8 @@
     background-image: url("red-door-background.jpg");
     background-size: 100vh;
 
-    h1 {
-        text-align: center;
-        align-self: center;
-        margin: 1rem auto 1rem auto;
-    }
-
     span {
-        font-size: 5.5rem;
+        font-size: 4.5rem;
         text-decoration-line: underline;
         padding: 0.25rem;
         font-family: $primary-font;
@@ -35,7 +29,7 @@
     button {
         background-color: #000000;
         color: #ffffff;
-        font-size: 2rem;
+        font-size: 1.75rem;
         padding: 0.75rem;
         font-family: $secondary-font;
     }
